@@ -13,7 +13,9 @@ const serviceRoutes = require('./routes/serviceRoute');
 const userRoutes = require('./routes/userRoute');
 
 
-
+require("dotenv").config({
+  path:path.join(__dirname, ".env")
+})
 // app.use(express.static(__dirname + 'uploads'));
 app.use('/uploads', express.static('api/uploads'));
 app.use(morgan('dev'));
