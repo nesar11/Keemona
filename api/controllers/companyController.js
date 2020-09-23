@@ -6,7 +6,58 @@ const multer = require('multer');
 // const mongoose = require('mongoose');
 // const fs = require('fs');
 const app = express();
+const {roles} = require('../middleware/roles');
 
+
+
+
+exports.grantAccess = function(action, resource){
+    return async (req, res, next)=>{
+        try {
+            const permission = roles.can(req.user.role)[action](resource);
+            if(!permission.granted){
+                return  res.status(401).json({
+                    erroor: " you don't have enough permission to perfrom this action"
+                })
+                
+            }
+            next()
+        } catch (error){
+            next(error)
+        }
+    }
+}
+
+
+exports.allowIfLoggedin = async (req, res, next) => {
+    try {
+      const user = res.locals.loggedInUser;
+      if (!user)
+        return res.status(401).json({
+          error: "You need to be logged in to access this route"
+        });
+      req.user = user;
+      next();
+    } catch (error) {
+      next(error);
+    }
+  }
+
+
+// exports.allowIfLoggedin = async (req, res, next) =>{
+//     try {
+//         const user = res.locats.loggedInUser;
+//         if(!user)
+//         return res.status(401).json({
+//             error: " You need to be logged in to access thie route"
+//                });
+//         req.user = user;
+//         next()
+//     } catch(error)
+//     {
+//         next(error)
+//     }
+// }
 
 // GET all Company
 exports.getAll =  (req, res, next)=>{

@@ -9,20 +9,20 @@ router.get('/', projectControllers.allowIfLoggedin, projectControllers.grantAcce
 
 
 
-router.post('/', projectControllers.AddProject);
+router.post('/', projectControllers.allowIfLoggedin, projectControllers.grantAccess('createAny', 'projects'),  projectControllers.AddProject);
 
 
-router.get('/:projectId', projectControllers.allowIfLoggedin, projectControllers.getOneProject );
-
-
-
-router.patch('/:projectId', projectControllers.allowIfLoggedin, projectControllers.updateProject);
+router.get('/:projectId', projectControllers.allowIfLoggedin,  projectControllers.getOneProject );
 
 
 
+router.patch('/:projectId', projectControllers.allowIfLoggedin, projectControllers.grantAccess('updateAny', 'projects'),  projectControllers.updateProject);
 
 
-router.delete('/:projectId', projectControllers.allowIfLoggedin, projectControllers.deleteProject);
+
+
+
+router.delete('/:projectId', projectControllers.allowIfLoggedin, projectControllers.grantAccess('deleteAny', 'projects'),   projectControllers.deleteProject);
 
 
 module.exports = router;
