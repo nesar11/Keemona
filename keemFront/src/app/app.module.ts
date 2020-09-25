@@ -4,8 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatIconModule} from '@angular/material/icon';
 import { SignupComponent } from './component/auth/user/signup/signup.component';
 import { LoginComponent } from './component/auth/user/login/login.component';
 import { UserListComponent } from './component/auth/user/user-list/user-list.component';
@@ -21,6 +21,22 @@ import { AddProjectComponent } from './component/project/add-project/add-project
 import { AddCompanyComponent } from './component/company/add-company/add-company.component';
 import { ListCompanyComponent } from './component/company/list-company/list-company.component';
 import { UpdateCompanyComponent } from './component/company/update-company/update-company.component';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule,
+         MatMenuModule,
+         MatButtonModule,
+         MatTableModule,
+         MatDividerModule,
+         MatProgressSpinnerModule,
+         MatInputModule,
+         MatCardModule,
+         MatSlideToggleModule,
+         MatSelectModule,
+         MatOptionModule} from '@angular/material';
 
 
 @NgModule({
@@ -38,7 +54,23 @@ import { UpdateCompanyComponent } from './component/company/update-company/updat
     AddProjectComponent,
     AddCompanyComponent,
     ListCompanyComponent,
-    UpdateCompanyComponent
+    UpdateCompanyComponent,
+  FormsModule,
+  ReactiveFormsModule,
+  BrowserAnimationsModule,
+  MatToolbarModule,
+  MatInputModule,
+  MatCardModule,
+  MatMenuModule,
+  MatIconModule,
+  MatButtonModule,
+  MatTableModule,
+  MatDividerModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatProgressSpinnerModule,
+  FlexLayoutModule
   ],
 
   imports: [
