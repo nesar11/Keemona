@@ -21,22 +21,27 @@ import { AddProjectComponent } from './component/project/add-project/add-project
 import { AddCompanyComponent } from './component/company/add-company/add-company.component';
 import { ListCompanyComponent } from './component/company/list-company/list-company.component';
 import { UpdateCompanyComponent } from './component/company/update-company/update-company.component';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { MatToolbarModule,
-         MatMenuModule,
-         MatButtonModule,
-         MatTableModule,
-         MatDividerModule,
-         MatProgressSpinnerModule,
-         MatInputModule,
-         MatCardModule,
-         MatSlideToggleModule,
-         MatSelectModule,
-         MatOptionModule} from '@angular/material';
+  MatMenuModule,
+  MatTableModule,
+  MatDividerModule,
+  MatProgressSpinnerModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatOptionModule} from '@angular/material';
+import {
+  MatCardModule,
+  MatTabsModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCheckboxModule,
+} from '@angular/material';
 
 
 @NgModule({
@@ -55,28 +60,33 @@ import { MatToolbarModule,
     AddCompanyComponent,
     ListCompanyComponent,
     UpdateCompanyComponent,
-  FormsModule,
-  ReactiveFormsModule,
-  BrowserAnimationsModule,
-  MatToolbarModule,
-  MatInputModule,
-  MatCardModule,
-  MatMenuModule,
-  MatIconModule,
-  MatButtonModule,
-  MatTableModule,
-  MatDividerModule,
-  MatSlideToggleModule,
-  MatSelectModule,
-  MatOptionModule,
-  MatProgressSpinnerModule,
-  FlexLayoutModule
+
   ],
 
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
+    FlexLayoutModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+  MatFormFieldModule,
+  MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
