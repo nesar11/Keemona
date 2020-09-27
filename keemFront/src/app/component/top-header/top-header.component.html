@@ -1,0 +1,18 @@
+
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="/">MyBolg
+    <img src="../../../assets/keemona_logo.png" width="30%"></a>
+  </span>
+  <span class="spacer"></span>
+
+    <button mat-raised-button routerLink="/companies" > Companies</button>
+      <button mat-raised-button routerLink="/projects" > Projects</button>
+    <button mat-raised-button routerLink="/services" > Services</button>
+    <mat-icon matSuffix [matMenuTriggerFor]="menu">account_circle</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>Logout</button>
+    </mat-menu>
+
+    </mat-toolbar>

@@ -24,34 +24,36 @@ import {DetailsCompanyComponent} from './component/company/details-company/detai
 
 
 
-const Routes = [
+const routes: Routes = [
 
-  {path: '/auth/register', component: SignupComponent },
-  {path: '/auth/login', component: LoginComponent },
-  {path: '/auth/users', component: UserListComponent },
-  {path: '/auth/profile/:id', component: ProfileComponent },
+  {path: 'auth/register', component: SignupComponent },
+  {path: 'auth/login', component: LoginComponent },
+  {path: 'auth/users', component: UserListComponent },
+  {path: 'auth/profile/:id', component: ProfileComponent },
 
-  {path: '/company/create', component: AddCompanyComponent },
-  {path: '/companies', component: UpdateCompanyComponent },
-  {path: '/company/update', component: ListCompanyComponent },
-  {path: '/company/details', component: DetailsCompanyComponent },
+  {path: 'company/create', component: AddCompanyComponent },
+  {path: 'companies', component: UpdateCompanyComponent },
+  {path: 'company/update', component: ListCompanyComponent },
+  {path: 'company/details', component: DetailsCompanyComponent },
 
-  {path: '/project/create', component: AddProjectComponent },
-  {path: '/projects', component: ListProjectComponent },
-  {path: '/project/update', component: UpdateProjectComponent },
-  {path: '/project/details', component: DetailsProjectComponent },
+  {path: 'project/create', component: AddProjectComponent },
+  {path: 'projects', component: ListProjectComponent },
+  {path: 'project/update', component: UpdateProjectComponent },
+  {path: 'project/details', component: DetailsProjectComponent },
 
-  {path: '/service/create', component: AddServiceComponent },
-  {path: '/services', component: ListServiceComponent },
-  {path: '/service/update', component: UpdateServiceComponent },
-  {path: '/service/details', component: DetailsServiceComponent },
+  {path: 'service/create', component: AddServiceComponent },
+  {path: 'services', component: ListServiceComponent },
+  {path: 'service/update', component: UpdateServiceComponent },
+  {path: 'service/details', component: DetailsServiceComponent },
 
 ];
 
 
 
 @NgModule({
-  imports: [],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
   exports: [
     RouterModule
   ]
