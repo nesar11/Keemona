@@ -26,7 +26,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TopHeaderComponent} from './component/top-header/top-header.component';
 
-import {MaterialModule} from './component/core/material/material.module'
+import {MaterialModule} from './component/core/material/material.module';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import {CompanyService} from './helper/company.service';
+import {ProjectService} from './helper/project.service';
+import {ServiceService} from './helper/service.service';
+import {UserService} from './helper/user.service';
+
 
 @NgModule({
   declarations: [
@@ -56,10 +65,12 @@ import {MaterialModule} from './component/core/material/material.module'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    SlimLoadingBarModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [CompanyService, ProjectService, ServiceService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-header.component.css']
 })
 export class TopHeaderComponent implements OnInit {
-
+  value = 'Clear me';
   constructor() { }
 
   ngOnInit() {

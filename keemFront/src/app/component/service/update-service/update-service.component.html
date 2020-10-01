@@ -1,1 +1,71 @@
 <p>update-service works!</p>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Service Name</label>
+        <input type="text" class="form-control"
+        formControlName="serviceName"
+          #serviceName/>
+      </div>
+      <div *ngIf="angForm.controls['serviceName'].invalid && (angForm.controls['serviceNname'].dirty || angForm.controls['serviceNname'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['serviceName'].errors.required">
+          Service Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Service Code </label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="serviceKeeCode"
+        #serviceKeeCode></textarea>
+      </div>
+      <div *ngIf="angForm.controls['serviceKeeCode'].invalid && (angForm.controls['serviceKeeCode'].dirty || angForm.controls['serviceKeeCode'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['serviceKeeCode'].errors.required">
+          Service code  is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Description</label>
+        <input type="text" class="form-control"
+        formControlName="description"
+        #description/>
+      </div>
+      <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['description'].errors.required">
+          Descritption is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">specifications</label>
+        <input type="text" class="form-control"
+        formControlName="specifications"
+        #specifications/>
+      </div>
+      <div *ngIf="angForm.controls['specifications'].invalid && (angForm.controls['specifications'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['specifications'].errors.required">
+          Descritption is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">moreInfo</label>
+        <input type="text" class="form-control"
+        formControlName="moreInfo"
+        #moreInfo/>
+      </div>
+      <div *ngIf="angForm.controls['moreInfo'].invalid && (angForm.controls['moreInfo'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['moreInfo'].errors.required">
+          Descritption is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid"
+        (click) = "addService(serviceName.value, serviceKeeCode.value, description.value, specifications.value, moreInfo.value)">Create Member</button>
+      </div>
+    </form>
+  </div>
+</div>

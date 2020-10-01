@@ -1,17 +1,17 @@
 const mongooose = require('mongoose');
 
 const companySchema = new mongooose.Schema({
-    company_name: {type:String},
-    company_logo: {type:String},
-    client_Kee_Code: {type:String},
+    companyName: {type:String},
+    companyLogo: {type:String},
+    clientKeeCode: {type:String},
     country: {type:String},
     city: {type:String},
     address: {type:String},
     website: {type:String},
     telephone: {type:Number},
     industry: {type:String},
-    company_description: {type:String},
-    year_established: {type: Number}
+    companyDestn: {type:String},
+    yearEst: {type: Number}
 
 },{timestamps:true});
 

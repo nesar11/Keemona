@@ -30,3 +30,6 @@ a {
   margin: 20px;
   font-size: 35px;
   }
+  .example-form-field {
+    width: 200px;
+  }

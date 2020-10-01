@@ -13,7 +13,8 @@ import { MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
-  MatCheckboxModule} from '@angular/material';
+  MatCheckboxModule,
+} from '@angular/material';
 
 const MaterialComponents = [
   MatIconModule,

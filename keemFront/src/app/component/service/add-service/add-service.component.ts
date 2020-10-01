@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServiceService} from '../../../helper/service.service';
 
 @Component({
   selector: 'app-add-service',
@@ -6,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'Service Name', 'SK Code', 'description', 'specifications', 'moreInfo'];
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder,
+              private ss: ServiceService,
+              private router: Router,) {
+                this.createForm()
+              }
 
-  constructor() { }
+  createForm(){
+    this.angForm = this.fb.group({
+      serviceName: ['', Validators.required],
+      serviceKeeCode: ['', Validators.required],
+      description: ['', Validators.required],
+      specifications: ['', Validators.required],
+      moreInfo: ['', Validators.required],
+    });
+  }
+  addService(serviceName, serviceKeeCode, description, specifications, moreInfo  ){
+    this.ss.addService(serviceName, serviceKeeCode, description, specifications, moreInfo);
+    this.router.navigate(['services']);
 
-  ngOnInit() {
+  }
+
+  ngOnInit(): void{
   }
 
 }

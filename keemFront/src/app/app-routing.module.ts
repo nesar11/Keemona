@@ -43,7 +43,7 @@ const routes: Routes = [
 
   {path: 'service/create', component: AddServiceComponent },
   {path: 'services', component: ListServiceComponent },
-  {path: 'service/update', component: UpdateServiceComponent },
+  {path: 'services/:id', component: UpdateServiceComponent },
   {path: 'service/details', component: DetailsServiceComponent },
 
 ];

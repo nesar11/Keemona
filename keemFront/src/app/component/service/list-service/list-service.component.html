@@ -1,1 +1,62 @@
-<p>list-service works!</p>
+
+<!-- <table mat-table []="services" class="mat-elevation-z8">
+
+
+
+  <ng-container matColumnDef="serviceName">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let service"> {{service.serviceName }} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="serviceKeeCode">
+    <th mat-header-cell *matHeaderCellDef> serviceKeeCode </th>
+    <td mat-cell *matCellDef="let service"> {{service.serviceKeeCode}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let service"> {{service.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="specifications">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let service"> {{service.specifications}} </td>
+  </ng-container>
+
+
+   <ng-container matColumnDef="moreInfo">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let service"> {{service.moreInfo}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Service Name</td>
+      <td>SS Code</td>
+      <td>Description</td>
+      <td>Specification</td>
+      <td>More Info</td>
+      <td colspan="2">Actions</td>
+      <td><a routerLink="/service/create" class="btn btn-primary">Add Service</a></td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let service of services">
+
+          <td>{{ service.serviceName }}</td>
+          <td>{{ service.serviceKeeCode }}</td>
+          <td>{{ service.description }}</td>
+          <td>{{ service.specifications }}</td>
+          <td>{{ service.moreInfo }}</td>
+          <td><a [routerLink]="['/services',service._id]" class="btn btn-primary">Edit</a></td>
+          <td><a (click) = "deleteService(service._id, i)" class="btn btn-danger">Delete</a>
+
+  </tbody>
+</table>

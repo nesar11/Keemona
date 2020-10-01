@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "../node_modules/ng2-slim-loading-bar/style.css";
 
 body {
   margin: 0;

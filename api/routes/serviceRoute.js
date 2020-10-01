@@ -4,16 +4,19 @@ const router = express.Router();
 
 const serviceControllers = require('../controllers/serviceController');
 
-router.get('/', serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('readAny', 'services'),  serviceControllers.getAllService);
+router.get('/',  serviceControllers.getAllService);
+router.post('/', serviceControllers.AddService);
+router.get('/:id',  serviceControllers.getOneService);
+router.patch('/:id',  serviceControllers.updateService); 
+router.delete('/:id',   serviceControllers.deleteOne);
 
-router.post('/',serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('createAny', 'services'), serviceControllers.AddService);
 
 
-router.get('/:serviceId',  serviceControllers.getOneService);
-
-router.patch('/:serviceId', serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('updateAny', 'services'), serviceControllers.updateService); 
-
-router.delete('/:serviceId',serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('deleteAny', 'services'),  serviceControllers.deleteOne);
+// router.get('/', serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('readAny', 'services'),  serviceControllers.getAllService);
+// router.post('/',serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('createAny', 'services'), serviceControllers.AddService);
+// router.get('/:serviceId',  serviceControllers.getOneService);
+// router.patch('/:serviceId', serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('updateAny', 'services'), serviceControllers.updateService); 
+// router.delete('/:serviceId',serviceControllers.allowIfLoggedin, serviceControllers.grantAccess('deleteAny', 'services'),  serviceControllers.deleteOne);
 
 
 

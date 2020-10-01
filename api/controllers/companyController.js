@@ -6,58 +6,38 @@ const multer = require('multer');
 // const mongoose = require('mongoose');
 // const fs = require('fs');
 const app = express();
-const {roles} = require('../middleware/roles');
-
-
-
-
-exports.grantAccess = function(action, resource){
-    return async (req, res, next)=>{
-        try {
-            const permission = roles.can(req.user.role)[action](resource);
-            if(!permission.granted){
-                return  res.status(401).json({
-                    erroor: " you don't have enough permission to perfrom this action"
-                })
+// const {roles} = require('../middleware/roles');
+// exports.grantAccess = function(action, resource){
+//     return async (req, res, next)=>{
+//         try {
+//             const permission = roles.can(req.user.role)[action](resource);
+//             if(!permission.granted){
+//                 return  res.status(401).json({
+//                     erroor: " you don't have enough permission to perfrom this action"
+//                 })
                 
-            }
-            next()
-        } catch (error){
-            next(error)
-        }
-    }
-}
-
-
-exports.allowIfLoggedin = async (req, res, next) => {
-    try {
-      const user = res.locals.loggedInUser;
-      if (!user)
-        return res.status(401).json({
-          error: "You need to be logged in to access this route"
-        });
-      req.user = user;
-      next();
-    } catch (error) {
-      next(error);
-    }
-  }
-
-
-// exports.allowIfLoggedin = async (req, res, next) =>{
-//     try {
-//         const user = res.locats.loggedInUser;
-//         if(!user)
-//         return res.status(401).json({
-//             error: " You need to be logged in to access thie route"
-//                });
-//         req.user = user;
-//         next()
-//     } catch(error)
-//     {
-//         next(error)
+//             }
+//             next()
+//         } catch (error){
+//             next(error)
+//         }
 //     }
 // }
+
+// exports.allowIfLoggedin = async (req, res, next) => {
+//     try {
+//       const user = res.locals.loggedInUser;
+//       if (!user)
+//         return res.status(401).json({
+//           error: "You need to be logged in to access this route"
+//         });
+//       req.user = user;
+//       next();
+//     } catch (error) {
+//       next(error);
+//     }
+//   }
+
 
 // GET all Company
 exports.getAll =  (req, res, next)=>{
@@ -79,17 +59,17 @@ exports.AddCompany=  (req, res, next)=>{
     const url = req.protocol + "://" + req.get("host");
     console.log(req.file);
     const company = new Company({
-        company_name: req.body.company_name,
-        company_logo: url + "/" + req.file.path,
-        client_Kee_Code: req.body.client_Kee_Code,
+        companyName: req.body.companyName,
+        companyLogo: url + "/" + req.file.path,
+        clientKeeCode: req.body.clientKeeCode,
         country: req.body.country,
         city: req.body.city,
         address: req.body.address,
         website: req.body.webiste,
         telephone: req.body.telephone,
         industry: req.body.industry,
-        company_description:req.body.company_description,
-        year_established:req.body.year_established
+        companyDestn:req.body.companyDestn,
+        yearEst:req.body.yearEst
 
     });
     company.save()
@@ -130,17 +110,17 @@ exports.UpdateCompany = (req, res, next)=>{
     Company.update({_id:id},
          {$set:
             {
-                company_name: req.body.company_name,
-                company_logo: url + "/" + req.file.path,
-                client_Kee_Code: req.body.client_Kee_Code,
+                companyName: req.body.companyName,
+                companyLogo: url + "/" + req.file.path,
+                clientKeeCode: req.body.clientKeeCode,
                 country: req.body.country,
                 city: req.body.city,
                 address: req.body.address,
                 website: req.body.webiste,
                 telephone: req.body.telephone,
                 industry: req.body.industry,
-                company_description:req.body.company_description,
-                year_established:req.body.year_established
+                companyDestn:req.body.companyDestn,
+                yearEst:req.body.yearEst
             }
         })
     
