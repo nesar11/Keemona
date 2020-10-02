@@ -7,7 +7,7 @@
         formControlName="serviceName"
           #serviceName/>
       </div>
-      <div *ngIf="angForm.controls['serviceName'].invalid && (angForm.controls['serviceNname'].dirty || angForm.controls['serviceNname'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['serviceName'].invalid && (angForm.controls['serviceName'].dirty || angForm.controls['serviceNname'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['serviceName'].errors.required">
           Service Name is required.
         </div>

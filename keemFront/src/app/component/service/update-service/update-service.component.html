@@ -1,4 +1,3 @@
-<p>update-service works!</p>
 <div class="card">
   <div class="card-body">
     <form [formGroup]="angForm" novalidate>
@@ -6,65 +5,68 @@
         <label class="col-md-4">Service Name</label>
         <input type="text" class="form-control"
         formControlName="serviceName"
-          #serviceName/>
+          #serviceName
+          [(ngModel)] = "nesar.serviceName"/>
       </div>
-      <div *ngIf="angForm.controls['serviceName'].invalid && (angForm.controls['serviceNname'].dirty || angForm.controls['serviceNname'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['serviceName'].invalid && (angForm.controls['serviceName'].dirty || angForm.controls['serviceName'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['serviceName'].errors.required">
           Service Name is required.
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4">Service Code </label>
+        <label class="col-md-4">SS Code </label>
         <textarea class="form-control" rows = 7 cols = "5"
         formControlName="serviceKeeCode"
-        #serviceKeeCode></textarea>
+        #serviceKeeCode
+        [(ngModel)] = "nesar.serviceKeeCode"></textarea>
       </div>
       <div *ngIf="angForm.controls['serviceKeeCode'].invalid && (angForm.controls['serviceKeeCode'].dirty || angForm.controls['serviceKeeCode'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['serviceKeeCode'].errors.required">
-          Service code  is required.
+          SS code is required.
         </div>
       </div>
-
       <div class="form-group">
         <label class="col-md-4">Description</label>
         <input type="text" class="form-control"
         formControlName="description"
-        #description/>
+        #description
+        [(ngModel)] = "nesar.description"/>
       </div>
       <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['description'].errors.required">
-          Descritption is required.
+          Description is required.
         </div>
       </div>
 
+
       <div class="form-group">
-        <label class="col-md-4">specifications</label>
-        <input type="text" class="form-control"
+        <label class="col-md-4">Specification </label>
+        <textarea class="form-control" rows = 7 cols = "5"
         formControlName="specifications"
-        #specifications/>
+        #specifications
+        [(ngModel)] = "nesar.specifications"></textarea>
       </div>
-      <div *ngIf="angForm.controls['specifications'].invalid && (angForm.controls['specifications'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['specifications'].invalid && (angForm.controls['specifications'].dirty || angForm.controls['specifications'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['specifications'].errors.required">
-          Descritption is required.
+          Specification is required.
         </div>
       </div>
-
       <div class="form-group">
-        <label class="col-md-4">moreInfo</label>
+        <label class="col-md-4">More Info.</label>
         <input type="text" class="form-control"
         formControlName="moreInfo"
-        #moreInfo/>
+        #moreInfo
+        [(ngModel)] = "nesar.moreInfo"/>
       </div>
-      <div *ngIf="angForm.controls['moreInfo'].invalid && (angForm.controls['moreInfo'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['moreInfo'].invalid && (angForm.controls['moreInfo'].dirty || angForm.controls['moreInfo'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['moreInfo'].errors.required">
-          Descritption is required.
+          More Info. is required.
         </div>
       </div>
-
       <div class="form-group">
         <button type="submit" class="btn btn-primary"
         [disabled]="angForm.pristine || angForm.invalid"
-        (click) = "addService(serviceName.value, serviceKeeCode.value, description.value, specifications.value, moreInfo.value)">Create Member</button>
+        (click) = "updateService(serviceName.value, serviceKeeCode.value, description.value, specifications.value, moreInfo.value)">Update Member</button>
       </div>
     </form>
   </div>

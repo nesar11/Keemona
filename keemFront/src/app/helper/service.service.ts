@@ -8,9 +8,9 @@ export class ServiceService {
   uri = 'http://localhost:3200/api/services';
 
   constructor(private http: HttpClient) { }
-  addService(serviceNname, serviceKeeCode,  description, specifications, moreInfo ) {
+  addService(serviceName, serviceKeeCode,  description, specifications, moreInfo ) {
       const obj = {
-        serviceNname,
+        serviceName,
         serviceKeeCode,
         description,
         specifications,
@@ -26,11 +26,11 @@ export class ServiceService {
     return this.http.get(`${this.uri}`);
   }
 
-  editService(){
-  return this.http.get(`${this.uri}/${_id}`);
+  editService(id){
+  return this.http.get(`${this.uri}/${id}`);
   }
 
-  updateService(serviceName, serviceKeeCode,  description, specifications, moreInfo ){
+  updateService(serviceName, serviceKeeCode,  description, specifications, moreInfo, id ){
     const obj = {
       serviceName,
       serviceKeeCode,
@@ -46,7 +46,7 @@ export class ServiceService {
 
   }
   deleteService(id){
-    return this.http.get(`${this.uri}/delete/${id}`);
+    return this.http.delete(`${this.uri}/${id}`);
   }
 }
 

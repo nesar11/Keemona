@@ -13,6 +13,13 @@ export class ListServiceComponent implements OnInit {
   constructor( private ss: ServiceService) { }
 
 
+  deleteService(id, index) {
+    this.ss.deleteService(id).subscribe(res => {
+      this.services.slice(index, 1);
+      console.log('res', "server has been remove successfully")
+    });
+}
+
   ngOnInit() {
     this.ss
             .getService()

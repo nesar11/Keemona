@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ServiceService} from '../../../helper/service.service';
+
 
 @Component({
   selector: 'app-update-service',
@@ -11,9 +12,14 @@ import { ServiceService} from '../../../helper/service.service';
 export class UpdateServiceComponent implements OnInit {
   angForm: FormGroup;
   service: any = {};
-  constructor(private route: ActivatedRoute, private router: Router, private ms: ServiceService, private fb: FormBuilder) {
-      this.createForm();
-    }
+  nesar: any;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private ms: ServiceService,
+              private fb: FormBuilder) {
+              this.createForm();
+              }
 
     createForm(){
       this.angForm = this.fb.group({
@@ -26,13 +32,22 @@ export class UpdateServiceComponent implements OnInit {
     }
       updateService(serviceName, serviceKeeCode,  description, specifications, moreInfo){
         this.route.params.subscribe(params => {
-          this.ms.updateService(serviceName, serviceKeeCode,  description, specifications, moreInfo, id);
+          this.ms.updateService(serviceName, serviceKeeCode,  description, specifications, moreInfo, params.id);
           this.router.navigate(['services']);
         });
 
       }
 
-  ngOnInit() {
-  }
+      ngOnInit(): void {
+        this.route.params.subscribe(params => {
+          this.ms.editService(params[`id`]).subscribe(res => {
+            this.service = res;
+            console.log('hwllo', this.service);
+            this.nesar = this.service.doc;
+            console.log('nesar', this.nesar);
+
+          });
+        });
+      }
 
 }
