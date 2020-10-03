@@ -36,9 +36,9 @@ const Project  = require('../models/project');
 
 exports.getAllProject= (req, res, next) =>{
     Project.find()
-    .then(result =>{
+    .then(docs =>{
         res.status(200).json({
-            result : result
+            docs : docs
         });
     })
     .catch(err =>{

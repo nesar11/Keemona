@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
-
 import {
   NavigationCancel,
   Event,
@@ -15,14 +14,19 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'keemFront';
 
-  constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
-    this.router.events.subscribe((event: Event) => {
-      this.navigationInterceptor(event);
-    });
-  }
+
+
+
+  constructor(private loadingBar: SlimLoadingBarService,
+              private router: Router
+              ) {
+this.router.events.subscribe((event: Event) => {
+this.navigationInterceptor(event);
+});
+}
   private navigationInterceptor(event: Event): void {
     if (event instanceof NavigationStart) {
       this.loadingBar.start();

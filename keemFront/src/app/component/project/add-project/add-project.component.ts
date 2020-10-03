@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators} from "@angular/forms";
+import { Router} from '@angular/router';
+import { ProjectService} from '../../../helper/project.service';
 
 @Component({
   selector: 'app-add-project',
@@ -6,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent implements OnInit {
+angForm: FormGroup;
+  constructor(private fb: FormBuilder,
+              private ps: ProjectService,
+              private router: Router) {
+                this.creaeForm()
+              }
+   creaeForm(){
+     this.angForm = this.fb.group({
+      energy: ['', Validators.required],
+      air: ['', Validators.required],
+      water: ['', Validators.required],
+      tour360: ['', Validators.required],
+      certification: ['', Validators.required],
+      waste: ['', Validators.required],
+      healthNsafety: ['', Validators.required],
+      controle: ['', Validators.required],
+     });
 
-  constructor() { }
+     }
+     AddProject(energy, air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle,){
+        this.ps.addProject(energy,
+          air, water, tour360, footfall, certification, procurement, waste, healthNsafety,controle);
+        this.router.navigate(['projects']);
+        console.log('product created')
 
+   }
   ngOnInit() {
   }
 

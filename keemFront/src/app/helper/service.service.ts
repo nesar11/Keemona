@@ -46,7 +46,10 @@ export class ServiceService {
 
   }
   deleteService(id){
-    return this.http.delete(`${this.uri}/${id}`);
+    return this
+    .http
+    .get(`${this.uri}/${id}`);
+
   }
 }
 

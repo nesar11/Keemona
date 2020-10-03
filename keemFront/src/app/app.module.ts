@@ -37,6 +37,7 @@ import {ServiceService} from './helper/service.service';
 import {UserService} from './helper/user.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,7 @@ import {UserService} from './helper/user.service';
     HttpClientModule
 
   ],
-  providers: [CompanyService, ProjectService, ServiceService, UserService],
+  providers: [CompanyService, ProjectService, ServiceService, UserService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

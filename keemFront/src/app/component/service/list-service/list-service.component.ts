@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
+
 import Service from '../../core/models/Service';
 import { ServiceService} from '../../../helper/service.service';
 @Component({
@@ -15,8 +18,7 @@ export class ListServiceComponent implements OnInit {
 
   deleteService(id, index) {
     this.ss.deleteService(id).subscribe(res => {
-      this.services.slice(index, 1);
-      console.log('res', "server has been remove successfully")
+      this.services.splice(index, 1);
     });
 }
 

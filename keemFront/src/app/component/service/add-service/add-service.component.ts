@@ -9,7 +9,7 @@ import { ServiceService} from '../../../helper/service.service';
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Service Name', 'SK Code', 'description', 'specifications', 'moreInfo'];
+
   angForm: FormGroup;
   constructor(private fb: FormBuilder,
               private ss: ServiceService,
