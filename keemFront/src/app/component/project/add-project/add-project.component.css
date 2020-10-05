@@ -51,3 +51,15 @@ input[type="file"] {
 .image-preview img {
  height: 100%;
 }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #00a651;
+  border-color: #00a651;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #00a651;
+  border-color: #00a651;
+}

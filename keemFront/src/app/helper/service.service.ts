@@ -26,7 +26,7 @@ export class ServiceService {
     return this.http.get(`${this.uri}`);
   }
 
-  editService(id){
+  editService(id: string){
   return this.http.get(`${this.uri}/${id}`);
   }
 
@@ -45,10 +45,10 @@ export class ServiceService {
         console.log('Done'));
 
   }
-  deleteService(id){
+  deleteService(id: string){
     return this
     .http
-    .get(`${this.uri}/${id}`);
+    .delete(`${this.uri}/${id}`);
 
   }
 }

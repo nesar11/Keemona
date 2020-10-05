@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from "@angular/forms";
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router} from '@angular/router';
 import { ProjectService} from '../../../helper/project.service';
 
@@ -10,6 +10,8 @@ import { ProjectService} from '../../../helper/project.service';
 })
 export class AddProjectComponent implements OnInit {
 angForm: FormGroup;
+
+isLoadingResults = false;
   constructor(private fb: FormBuilder,
               private ps: ProjectService,
               private router: Router) {
@@ -30,7 +32,7 @@ angForm: FormGroup;
      }
      AddProject(energy, air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle,){
         this.ps.addProject(energy,
-          air, water, tour360, footfall, certification, procurement, waste, healthNsafety,controle);
+          air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle);
         this.router.navigate(['projects']);
         console.log('product created')
 

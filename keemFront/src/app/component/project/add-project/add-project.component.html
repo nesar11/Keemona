@@ -1,57 +1,126 @@
-<!-- <mat-spinner ></mat-spinner> -->
-<div class="example-container">
-  <mat-form-field appearance="fill">
-    <mat-label>Energy</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Air</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Water</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Tour 360</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>footfall</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Certification</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Procurement </mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Waste</mat-label>
-    <mat-select>
-      <mat-option value="option">Domestic</mat-option>
-      <mat-option value="option">Industril</mat-option>
-      <mat-option value="option">Public</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Health Safy</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
 
-  <button mat-raised-button color="primary">Save</button> &nbsp;&nbsp;
-  <button mat-raised-button color="accent">Clear</button>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Energy </label>
+        <input type="text" class="form-control"
+        formControlName="energy"
+          #energy/>
+      </div>
+      <div *ngIf="angForm.controls['energy'].invalid && (angForm.controls['energy'].dirty || angForm.controls['serviceNname'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['energy'].errors.required">
+          Energy is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Air</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="air"
+        #air></textarea>
+      </div>
+      <div *ngIf="angForm.controls['air'].invalid && (angForm.controls['air'].dirty || angForm.controls['air'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['air'].errors.required">
+          Air is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">water</label>
+        <input type="text" class="form-control"
+        formControlName="water"
+        #water/>
+      </div>
+      <div *ngIf="angForm.controls['water'].invalid && (angForm.controls['water'].dirty || angForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['water'].errors.required">
+          Water is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">tour360</label>
+        <input type="text" class="form-control"
+        formControlName="tour360"
+        #tour360/>
+      </div>
+      <div *ngIf="angForm.controls['tour360'].invalid && (angForm.controls['tour360'].dirty || angForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['tour360'].errors.required">
+          Tour 360 is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">footfall</label>
+        <input type="text" class="form-control"
+        formControlName="footfall"
+        #footfall/>
+      </div>
+      <div *ngIf="angForm.controls['footfall'].invalid && (angForm.controls['footfall'].dirty || angForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['footfall'].errors.required">
+          Footfall is required.
+        </div>
+      </div>
 
 
+
+      <div class="form-group">
+        <label class="col-md-4">certification  </label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="certification"
+        #certification></textarea>
+      </div>
+      <div *ngIf="angForm.controls['certification'].invalid && (angForm.controls['certification'].dirty || angForm.controls['certification'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['certification'].errors.required">
+          certification  is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">waste</label>
+        <input type="text" class="form-control"
+        formControlName="waste"
+        #waste/>
+      </div>
+      <div *ngIf="angForm.controls['waste'].invalid && (angForm.controls['waste'].dirty || angForm.controls['waste'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['waste'].errors.required">
+          Descritption is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Service Code </label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="healthNsafety"
+        #healthNsafety></textarea>
+      </div>
+      <div *ngIf="angForm.controls['healthNsafety'].invalid && (angForm.controls['healthNsafety'].dirty || angForm.controls['healthNsafety'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['healthNsafety'].errors.required">
+          Service code  is required.
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label class="col-md-4">controle</label>
+        <input type="text" class="form-control"
+        formControlName="controle"
+        #controle/>
+      </div>
+      <div *ngIf="angForm.controls['controle'].invalid && (angForm.controls['controle'].dirty || angForm.controls['controle'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['controle'].errors.required">
+          Descritption is required.
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid"
+        (click) = "AddProject(energy.value, air.value, water.value, tour360.value, footfall.value, certification.value, waste.value, healthNsafety.value, controle.value)">Create Member</button>
+      </div>
+    </form>
+  </div>
 </div>
-
