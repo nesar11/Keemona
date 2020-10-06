@@ -31,10 +31,32 @@ export class ProjectService {
   getProject(){
     return this.http.get(`${this.APIuri}`);
   }
-  // editProject(id){
-  //   return this.http.get(`${this.uri}/${id}`);
-  // }
+  editProject(id: string){
+    return this.http.get(`${this.APIuri}/${id}`);
 
 
+  }
+updateProject( energy, air, water, tour360, footfall, certification, waste, healthNsafety,
+  controle, id
+){
+  const obj = {
+            energy,
+            air,
+            water,
+            tour360,
+            footfall,
+            certification,
+            waste,
+            healthNsafety,
+            controle,
+  };
+  this.http.patch(`${this.APIuri}/${id}`, obj)
+  .subscribe(res => {
+    console.log(' project has been updated')
+  });
+}
+ deleteProject(id: string){
+   return this.http.delete(`${this.APIuri}/${id}`);
+ }
 
 }

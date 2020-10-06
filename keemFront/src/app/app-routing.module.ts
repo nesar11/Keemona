@@ -38,7 +38,7 @@ const routes: Routes = [
 
   {path: 'project/create', component: AddProjectComponent },
   {path: 'projects', component: ListProjectComponent },
-  {path: 'projects/update', component: UpdateProjectComponent },
+  {path: 'projects/:id', component: UpdateProjectComponent },
   {path: 'projects/details', component: DetailsProjectComponent },
 
   {path: 'service/create', component: AddServiceComponent },

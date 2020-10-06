@@ -1,1 +1,131 @@
-<p>update-project works!</p>
+
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angProForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Energy </label>
+        <input type="text" class="form-control"
+        formControlName="energy"
+          #energy
+          [(ngModel)]="doc.energy"/>
+      </div>
+      <div *ngIf="angProForm.controls['energy'].invalid && (angProForm.controls['energy'].dirty || angProForm.controls['serviceNname'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['energy'].errors.required">
+          Energy is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Air</label>
+        <textarea class="form-control"
+        formControlName="air"
+        #air
+        [(ngModel)]="doc.air"></textarea>
+      </div>
+      <div *ngIf="angProForm.controls['air'].invalid && (angProForm.controls['air'].dirty || angProForm.controls['air'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['air'].errors.required">
+          Air is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">water</label>
+        <input type="text" class="form-control"
+        formControlName="water"
+        #water [(ngModel)]="doc.water"/>
+      </div>
+      <div *ngIf="angProForm.controls['water'].invalid && (angProForm.controls['water'].dirty || angProForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['water'].errors.required">
+          Water is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">tour360</label>
+        <input type="text" class="form-control"
+        formControlName="tour360"
+        #tour360 [(ngModel)]="doc.tour360"/>
+      </div>
+      <div *ngIf="angProForm.controls['tour360'].invalid && (angProForm.controls['tour360'].dirty || angProForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['tour360'].errors.required">
+          Tour 360 is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">footfall</label>
+        <input type="text" class="form-control"
+        formControlName="footfall"
+        #footfall
+        [(ngModel)]="doc.footfall"/>
+      </div>
+      <div *ngIf="angProForm.controls['footfall'].invalid && (angProForm.controls['footfall'].dirty || angProForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['footfall'].errors.required">
+          Footfall is required.
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label class="col-md-4">certification  </label>
+        <textarea class="form-control"
+        formControlName="certification"
+        #certification
+        [(ngModel)]="doc.certification"></textarea>
+      </div>
+      <div *ngIf="angProForm.controls['certification'].invalid && (angProForm.controls['certification'].dirty || angProForm.controls['certification'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['certification'].errors.required">
+          certification  is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">waste</label>
+        <input type="text" class="form-control"
+        formControlName="waste"
+        #waste  [(ngModel)]="doc.waste"/>
+      </div>
+      <div *ngIf="angProForm.controls['waste'].invalid && (angProForm.controls['waste'].dirty || angProForm.controls['waste'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['waste'].errors.required">
+          waste is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Health and Safety</label>
+        <textarea class="form-control"
+        formControlName="healthNsafety"
+        #healthNsafety
+        [(ngModel)]="doc.healthNsafety"></textarea>
+      </div>
+      <div *ngIf="angProForm.controls['healthNsafety'].invalid && (angProForm.controls['healthNsafety'].dirty || angProForm.controls['healthNsafety'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['healthNsafety'].errors.required">
+          Health and Safety  is required.
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label class="col-md-4">controle</label>
+        <input type="text" class="form-control"
+        formControlName="controle"
+        #controle [(ngModel)]="doc.controle"/>
+      </div>
+      <div *ngIf="angProForm.controls['controle'].invalid && (angProForm.controls['controle'].dirty || angProForm.controls['controle'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['controle'].errors.required">
+          Control is required.
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"
+        [disabled]="angProForm.pristine || angProForm.invalid"
+        (click) = "updateProject(energy.value, air.value, water.value, tour360.value, footfall.value, certification.value, waste.value, healthNsafety.value, controle.value)">Upadate Project</button>
+      </div>
+    </form>
+  </div>
+</div>

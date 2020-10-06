@@ -22,7 +22,7 @@
           <td>{{ service.specifications }}</td>
           <td>{{ service.moreInfo }}</td>
           <td><a [routerLink]="['/services',service._id]" class="btn btn-primary">Edit</a></td>
-          <td><a (click) = "deleteService(service._id, i)" class="btn btn-danger">Delete</a>
+          <td><a (click) = "deleteService(service._id)" class="btn btn-danger">Delete</a>
 
   </tbody>
 </table>

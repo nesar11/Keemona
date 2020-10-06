@@ -9,6 +9,11 @@ import {ProjectService} from '../../../helper/project.service';
 export class ListProjectComponent implements OnInit {
   projects: Project[];
   constructor( private ps: ProjectService) { }
+  deleteProject(id, index){
+    this.ps.deleteProject(id).subscribe(res =>{
+      this.projects.splice(index, 1);
+    })
+  }
 
   ngOnInit() {
     this.ps

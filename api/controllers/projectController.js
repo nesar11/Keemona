@@ -103,7 +103,7 @@ exports.updateProject=(req, res, next) =>{
         energy : req.body.energy,
         air : req.body.air,
         water : req.body.water,
-        tour360 : req.body.tour_360,
+        tour360 : req.body.tour360,
         footfall : req.body.footfall,
         certification : req.body.certification,
         procurement : req.body.procurement,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { Router} from '@angular/router';
 import { ProjectService} from '../../../helper/project.service';
 
@@ -9,32 +9,32 @@ import { ProjectService} from '../../../helper/project.service';
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent implements OnInit {
-angForm: FormGroup;
-
-isLoadingResults = false;
+  angProForm: FormGroup;
+submitted = false;
   constructor(private fb: FormBuilder,
               private ps: ProjectService,
               private router: Router) {
                 this.creaeForm()
               }
    creaeForm(){
-     this.angForm = this.fb.group({
+     this.angProForm = this.fb.group({
       energy: ['', Validators.required],
       air: ['', Validators.required],
       water: ['', Validators.required],
       tour360: ['', Validators.required],
+      footfall: ['', Validators.required],
       certification: ['', Validators.required],
       waste: ['', Validators.required],
       healthNsafety: ['', Validators.required],
-      controle: ['', Validators.required],
+      controle: ['', Validators.required]
      });
 
      }
-     AddProject(energy, air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle,){
+     addProject(energy, air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle){
         this.ps.addProject(energy,
-          air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle);
+          air, water, tour360, footfall, certification, procurement, waste, footfall, healthNsafety, controle);
         this.router.navigate(['projects']);
-        console.log('product created')
+        console.log('product created');
 
    }
   ngOnInit() {

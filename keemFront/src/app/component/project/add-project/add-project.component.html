@@ -1,26 +1,26 @@
 
 <div class="card">
   <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
+    <form [formGroup]="angProForm" novalidate>
       <div class="form-group">
         <label class="col-md-4">Energy </label>
         <input type="text" class="form-control"
         formControlName="energy"
           #energy/>
       </div>
-      <div *ngIf="angForm.controls['energy'].invalid && (angForm.controls['energy'].dirty || angForm.controls['serviceNname'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['energy'].errors.required">
+      <div *ngIf="angProForm.controls['energy'].invalid && (angProForm.controls['energy'].dirty || angProForm.controls['serviceNname'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['energy'].errors.required">
           Energy is required.
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4">Air</label>
-        <textarea class="form-control" rows = 7 cols = "5"
+        <textarea class="form-control"
         formControlName="air"
         #air></textarea>
       </div>
-      <div *ngIf="angForm.controls['air'].invalid && (angForm.controls['air'].dirty || angForm.controls['air'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['air'].errors.required">
+      <div *ngIf="angProForm.controls['air'].invalid && (angProForm.controls['air'].dirty || angProForm.controls['air'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['air'].errors.required">
           Air is required.
         </div>
       </div>
@@ -31,8 +31,8 @@
         formControlName="water"
         #water/>
       </div>
-      <div *ngIf="angForm.controls['water'].invalid && (angForm.controls['water'].dirty || angForm.controls['water'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['water'].errors.required">
+      <div *ngIf="angProForm.controls['water'].invalid && (angProForm.controls['water'].dirty || angProForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['water'].errors.required">
           Water is required.
         </div>
       </div>
@@ -43,8 +43,8 @@
         formControlName="tour360"
         #tour360/>
       </div>
-      <div *ngIf="angForm.controls['tour360'].invalid && (angForm.controls['tour360'].dirty || angForm.controls['water'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['tour360'].errors.required">
+      <div *ngIf="angProForm.controls['tour360'].invalid && (angProForm.controls['tour360'].dirty || angProForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['tour360'].errors.required">
           Tour 360 is required.
         </div>
       </div>
@@ -55,8 +55,8 @@
         formControlName="footfall"
         #footfall/>
       </div>
-      <div *ngIf="angForm.controls['footfall'].invalid && (angForm.controls['footfall'].dirty || angForm.controls['water'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['footfall'].errors.required">
+      <div *ngIf="angProForm.controls['footfall'].invalid && (angProForm.controls['footfall'].dirty || angProForm.controls['water'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['footfall'].errors.required">
           Footfall is required.
         </div>
       </div>
@@ -65,12 +65,12 @@
 
       <div class="form-group">
         <label class="col-md-4">certification  </label>
-        <textarea class="form-control" rows = 7 cols = "5"
+        <textarea class="form-control"
         formControlName="certification"
         #certification></textarea>
       </div>
-      <div *ngIf="angForm.controls['certification'].invalid && (angForm.controls['certification'].dirty || angForm.controls['certification'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['certification'].errors.required">
+      <div *ngIf="angProForm.controls['certification'].invalid && (angProForm.controls['certification'].dirty || angProForm.controls['certification'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['certification'].errors.required">
           certification  is required.
         </div>
       </div>
@@ -81,20 +81,20 @@
         formControlName="waste"
         #waste/>
       </div>
-      <div *ngIf="angForm.controls['waste'].invalid && (angForm.controls['waste'].dirty || angForm.controls['waste'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['waste'].errors.required">
+      <div *ngIf="angProForm.controls['waste'].invalid && (angProForm.controls['waste'].dirty || angProForm.controls['waste'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['waste'].errors.required">
           Descritption is required.
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-md-4">Service Code </label>
-        <textarea class="form-control" rows = 7 cols = "5"
+        <textarea class="form-control"
         formControlName="healthNsafety"
         #healthNsafety></textarea>
       </div>
-      <div *ngIf="angForm.controls['healthNsafety'].invalid && (angForm.controls['healthNsafety'].dirty || angForm.controls['healthNsafety'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['healthNsafety'].errors.required">
+      <div *ngIf="angProForm.controls['healthNsafety'].invalid && (angProForm.controls['healthNsafety'].dirty || angProForm.controls['healthNsafety'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['healthNsafety'].errors.required">
           Service code  is required.
         </div>
       </div>
@@ -107,9 +107,9 @@
         formControlName="controle"
         #controle/>
       </div>
-      <div *ngIf="angForm.controls['controle'].invalid && (angForm.controls['controle'].dirty || angForm.controls['controle'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['controle'].errors.required">
-          Descritption is required.
+      <div *ngIf="angProForm.controls['controle'].invalid && (angProForm.controls['controle'].dirty || angProForm.controls['controle'].touched)" class="alert alert-danger">
+        <div *ngIf="angProForm.controls['controle'].errors.required">
+          Control is required.
         </div>
       </div>
 
@@ -118,8 +118,8 @@
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary"
-        [disabled]="angForm.pristine || angForm.invalid"
-        (click) = "AddProject(energy.value, air.value, water.value, tour360.value, footfall.value, certification.value, waste.value, healthNsafety.value, controle.value)">Create Member</button>
+        [disabled]="angProForm.pristine || angProForm.invalid"
+        (click) = "addProject(energy.value, air.value, water.value, tour360.value, footfall.value, certification.value, waste.value, healthNsafety.value, controle.value)">Create Project</button>
       </div>
     </form>
   </div>
