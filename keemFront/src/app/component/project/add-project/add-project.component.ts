@@ -31,8 +31,7 @@ submitted = false;
 
      }
      addProject(energy, air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle){
-        this.ps.addProject(energy,
-          air, water, tour360, footfall, certification, procurement, waste, footfall, healthNsafety, controle);
+        this.ps.addProject(energy, air, water, tour360, footfall, certification, procurement, waste, healthNsafety, controle);
         this.router.navigate(['projects']);
         console.log('product created');
 

@@ -32,8 +32,8 @@ const routes: Routes = [
   {path: 'auth/profile/:id', component: ProfileComponent },
 
   {path: 'company/create', component: AddCompanyComponent },
-  {path: 'companies', component: UpdateCompanyComponent },
-  {path: 'company/update', component: ListCompanyComponent },
+  {path: 'company/update', component: UpdateCompanyComponent },
+  {path: 'companies', component: ListCompanyComponent },
   {path: 'company/details', component: DetailsCompanyComponent },
 
   {path: 'project/create', component: AddProjectComponent },

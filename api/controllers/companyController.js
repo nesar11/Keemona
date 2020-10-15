@@ -43,8 +43,8 @@ const app = express();
 exports.getAll =  (req, res, next)=>{
     Company.find()
     .exec()
-    .then(docs =>{
-        res.status(200).json({docs})
+    .then(cdata =>{
+        res.status(200).json({cdata})
     })
     .catch(err =>{
         res.status(500).json({

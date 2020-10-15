@@ -1,4 +1,4 @@
-export default class Company{
+export default class Company {
   companyName: string;
   companyLogo: string;
   clientKeeCode: string;
