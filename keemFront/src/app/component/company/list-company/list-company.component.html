@@ -9,11 +9,10 @@
   <mat-card-header >
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title> {{company.companyName}}</mat-card-title>
-
-    <mat-card-subtitle> Air: {{company.air}}</mat-card-subtitle>
   </mat-card-header>
-  <!-- <img [src]="company.companyLogo" [alt]="company.companyLogo"> -->
-  <img mat-card-image src="http://localhost:3200/uploads/under maintenace.jpg" alt="Photo of a Shiba Inu">
+  <!-- <img  mat-card-image src="company.companyLogo" [alt]="company.companyLogo"> -->
+
+  <img mat-card-image [src]='company.companyLogo' [alt]='company.companyLogo'>
   <mat-card-content>
 
     <span><b> Client kee code :</b>  {{company.clientKeeCode}}</span> <br>
@@ -22,21 +21,24 @@
     <span> <b> address:</b> {{company.address }}</span><br>
     <span> <b> Website:</b> {{company.website }}</span><br>
     <span> <b> Telephone:</b> {{company.telephone }}</span> <br>
-    <span> <b> industry:</b> {{company.industry }}</span>
-    <span> <b> Company Description:</b> {{company.companyDestn }}</span>
+    <span> <b> industry:</b> {{company.industry }}</span><br>
+    <span> <b> Company Description:</b> {{company.companyDestn }}</span><br>
     <span> <b> year Established:</b> {{company.yearEst }}</span>
+
 
 
   </mat-card-content>
   <mat-card-actions>
-    <mat-icon aria-hidden="false" aria-label="Example edit icon" [routerLink]="['/companys/', company._id]">edit</mat-icon>
-    <mat-icon aria-hidden="false" aria-label="Example delete icon" (click)="deletecompany(company._id)" >delete</mat-icon>
+    <!-- <button _ngcontent-bdy-c204="" mat-button="" class="preview-media-button mat-button mat-button-base" tabindex="0"><span class="mat-button-wrapper" [routerLink]="['/companys/', company._id]" >Edit</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button>
+    <button _ngcontent-bdy-c204="" mat-button="" class="delete-media-button mat-button mat-button-base" tabindex="0"><span class="mat-button-wrapper"(click)="deleteCompany(company._id)">Delete</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button> -->
+    <mat-icon aria-hidden="false" aria-label="Example edit icon" >edit</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example delete icon"  >delete</mat-icon>
 
   </mat-card-actions>
 </mat-card>
 <table>
   <tbody>
-    <tr let company of companys>
+    <tr let company of companies>
 
     </tr>
   </tbody>

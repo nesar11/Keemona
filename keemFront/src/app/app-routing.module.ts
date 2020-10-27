@@ -28,6 +28,7 @@ const routes: Routes = [
 
   {path: 'auth/register', component: SignupComponent },
   {path: 'auth/login', component: LoginComponent },
+  // { path: '',   redirectTo: '/auth/login', pathMatch: 'full' },
   {path: 'auth/users', component: UserListComponent },
   {path: 'auth/profile/:id', component: ProfileComponent },
 

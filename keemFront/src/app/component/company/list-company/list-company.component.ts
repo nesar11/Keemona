@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 import Company from '../../../component/core/models/company';
 import {CompanyService } from '../../../helper/company.service';
 
@@ -9,13 +11,19 @@ import {CompanyService } from '../../../helper/company.service';
 })
 export class ListCompanyComponent implements OnInit {
 companies: Company[];
+
   constructor(private cs: CompanyService) { }
+  deleteCompany(id, index){
+    this.cs.deleteCompany(id).subscribe(res => {
+      this.companies.splice(index, 1);
+    });
+  }
 
   ngOnInit() {
     this.cs
-    .getCompanies()
-    .subscribe((cdata: Company[]) =>{
-      this.companies = cdata;
+    .getCompany()
+    .subscribe((data: Company[]) => {
+      this.companies = data;
       console.log(this.companies);
     });
   }

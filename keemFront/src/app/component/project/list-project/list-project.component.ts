@@ -12,14 +12,14 @@ export class ListProjectComponent implements OnInit {
   deleteProject(id, index){
     this.ps.deleteProject(id).subscribe(res =>{
       this.projects.splice(index, 1);
-    })
+    });
   }
 
   ngOnInit() {
     this.ps
             .getProject()
-            .subscribe((data: Project[]) => {
-              this.projects = data;
+            .subscribe((docs: Project[]) => {
+              this.projects = docs;
               console.log(this.projects);
              });
          }

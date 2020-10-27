@@ -1,19 +1,20 @@
 const multer = require('multer');
 
 
-
+// var now = new Date();
+// var isoString = now.toISOString();
 const storage = multer.diskStorage({
   destination: function( req, file, cb){
       cb(null, './uploads/');
 
   },
   filename: function(req, file, cb){
-cb(null,file.originalname);
+cb(null, file.originalname);
   }
 });
 
 const fileFilter = (req, file, cb) => {
-  if(file.mimetype ==='image/jpeg' || file.mimetype ==='image/jpg') {
+  if(file.mimetype ==='image/jpeg' || file.mimetype ==='image/jpg' || file.mimetype ==='image/png') {
   cb(null, true);
   }
  else{
@@ -30,4 +31,4 @@ const upload = multer({storage: storage,
 
 
 
-module.exports = multer({storage: storage}).single("company_logo");
+module.exports = multer({storage: storage}).single("companyLogo");

@@ -34,13 +34,7 @@ mongoose
  mongoose.Promise = global.Promise;
 
 
-
-// app.use(express.static(__dirname + 'uploads'));
-app.use('/uploads', express.static('api/uploads'));
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: true }));
-app.use(bodyParser.json());
-app.use(cors());
+ app.use('/uploads', express.static('uploads'));
 
 app.use(async (req, res, next) => {
   if (req.headers["x-access-token"]) {
@@ -63,14 +57,14 @@ app.use(async (req, res, next) => {
   }
 });
 
-// add module
-app.use('/api/companies', companyRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/services', serviceRoutes);
-app.use('/api/auth/', userRoutes);
+// app.use(express.static(__dirname + 'uploads'));
 
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: false }));
 
- app.use((req, res, next) => {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     "Access-Control-Allow-Headers",
@@ -83,9 +77,14 @@ app.use('/api/auth/', userRoutes);
   next();
 });
 
+// add module
+app.use('/api/companies', companyRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/auth/', userRoutes);
 
 
- app.use((req, res, next) =>{
+app.use((req, res, next) =>{
   const error = new Error('Not found');
   error.status(404);
   next(error);
@@ -99,14 +98,7 @@ app.use((error, req, res, next) =>{
       }
   })
 }) 
-
-
-
-// add module
-app.use('/api/companies', companyRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/services', serviceRoutes);
-app.use('/api/auth/', userRoutes);
  
+
 
 module.exports = app;

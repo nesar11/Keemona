@@ -7,7 +7,7 @@ const fs = require('fs');
 const extractfile = require('../middleware/file');
 
 // GET all Company
-router.get('/',    companyControllers.getAll );
+router.get('/', companyControllers.getAll );
 
 router.post('/', extractfile,  companyControllers.AddCompany);
 // GET all Company

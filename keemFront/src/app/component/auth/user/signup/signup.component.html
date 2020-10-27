@@ -2,60 +2,11 @@
   <mat-card class="mat-elevation-z12">
     <mat-card-title style="text-align:center;">SignIn/SignUp</mat-card-title>
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
-      <!-- <mat-tab label="Sign In">
-          <mat-card-content>
-            <form action="">
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Email"
-                  required
-                  name="email"
-                  ngModel
-                  #email="ngModel">
-                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                <mat-icon matSuffix>email</mat-icon>
-              </mat-form-field>
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Password"
-                  type="password"
-                  required
-                  minlength="6"
-                  name="password"
-                  ngModel
-                  #password="ngModel">
-                  <mat-error
-                    *ngIf="password.errors && password.errors.required">
-                    Password is required
-                  </mat-error>
-                  <mat-error
-                    *ngIf="password.errors && password.errors.minlength">
-                    Password must be of length 6
-                  </mat-error>
-                <mat-icon matSuffix>lock</mat-icon>
-              </mat-form-field>
-              <mat-checkbox>Remember Me!</mat-checkbox>
-              <button
-                mat-raised-button
-                color="primary"
-                class="login-button">
-                Sign In
-              </button>
 
-              <button
-                mat-raised-button
-                class="login-button">
-                Login with Google
-              </button>
-            </form>
-          </mat-card-content>
-      </mat-tab> -->
       <mat-tab label="Sign Up">
         <mat-card-content>
-          <form action="">
-            <mat-form-field>
+          <form action="signupData">
+            <!-- <mat-form-field>
               <input
                 matInput
                 placeholder="User Name"
@@ -69,7 +20,7 @@
                 Username is required
               </mat-error>
 
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field>
               <input
                 matInput
@@ -80,6 +31,17 @@
                 #email="ngModel">
                 <mat-error *ngIf="email.invalid">Email is required</mat-error>
               <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Role"
+                required
+                name="role"
+                ngModel
+                #role="ngModel">
+                <mat-error *ngIf="role.invalid">Role is required</mat-error>
+              <mat-icon matSuffix>role</mat-icon>
             </mat-form-field>
             <mat-form-field>
               <input
@@ -121,7 +83,7 @@
             <button
               mat-raised-button
               color="primary"
-              class="login-button">
+              class="login-button" (click)="signupUser()">
               Sign Up
             </button>
           </form>

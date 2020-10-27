@@ -41,7 +41,7 @@ const app = express();
 
 // GET all Company
 exports.getAll =  (req, res, next)=>{
-    Company.find()
+    Company.find().sort({updatedAt: -1})
     .exec()
     .then(cdata =>{
         res.status(200).json({cdata})
@@ -65,7 +65,7 @@ exports.AddCompany=  (req, res, next)=>{
         country: req.body.country,
         city: req.body.city,
         address: req.body.address,
-        website: req.body.webiste,
+        website: req.body.website,
         telephone: req.body.telephone,
         industry: req.body.industry,
         companyDestn:req.body.companyDestn,
@@ -73,9 +73,16 @@ exports.AddCompany=  (req, res, next)=>{
 
     });
     company.save()
-    .then(docs =>{
-        res.status(202).json({docs})
-    })
+    .then(doc =>{
+        if (docs.length >= 0) {
+            res.status(200).json(doc);
+              } else {
+                  res.status(404).json({
+                      message: 'No entries found'
+                  });
+              }
+          
+          })
     .catch(err =>{
         res.status(500).json({
             error: err
@@ -111,7 +118,7 @@ exports.UpdateCompany = (req, res, next)=>{
          {$set:
             {
                 companyName: req.body.companyName,
-                companyLogo: url + "/" + req.file.path,
+                companyLogo: url + "" + req.file.path,
                 clientKeeCode: req.body.clientKeeCode,
                 country: req.body.country,
                 city: req.body.city,
