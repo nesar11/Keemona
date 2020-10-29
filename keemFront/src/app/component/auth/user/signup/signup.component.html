@@ -1,35 +1,24 @@
 <div class="login-page">
   <mat-card class="mat-elevation-z12">
-    <mat-card-title style="text-align:center;">SignIn/SignUp</mat-card-title>
+    <mat-card-title style="text-align:center;">Sign Up</mat-card-title>
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
 
       <mat-tab label="Sign Up">
+        value{{myForm.value | json}}
         <mat-card-content>
-          <form action="signupData">
-            <!-- <mat-form-field>
-              <input
-                matInput
-                placeholder="User Name"
-                required
-                name="username"
-                ngModel
-                #username="ngModel">
-              <mat-icon matSuffix>perm_identity</mat-icon>
-              <mat-error
-                *ngIf="username.invalid">
-                Username is required
-              </mat-error>
-
-            </mat-form-field> -->
-            <mat-form-field>
+          <form [formGroup]="myForm">
+               <mat-form-field>
               <input
                 matInput
                 placeholder="Email"
                 required
+                class="form-control"
+                formControlName="email"
+
                 name="email"
-                ngModel
-                #email="ngModel">
-                <mat-error *ngIf="email.invalid">Email is required</mat-error>
+
+                >
+                <mat-error *ngIf="myForm.controls['email'].invalid">Email is required</mat-error>
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
             <mat-form-field>
@@ -38,48 +27,55 @@
                 placeholder="Role"
                 required
                 name="role"
-                ngModel
-                #role="ngModel">
-                <mat-error *ngIf="role.invalid">Role is required</mat-error>
+                class="form-control"
+                formControlName="role"
+
+               >
+                <mat-error *ngIf="myForm.controls['role'].invalid">Role is required</mat-error>
               <mat-icon matSuffix>role</mat-icon>
             </mat-form-field>
             <mat-form-field>
-              <input
-                matInput
-                placeholder="Password"
-                type="password"
-                required
-                minlength="6"
-                name="password"
-                ngModel
-                #password="ngModel">
-                <mat-error
-                  *ngIf="password.errors && password.errors.required">
-                  Password is required
-                </mat-error>
-                <mat-error
-                  *ngIf="password.errors && password.errors.minlength">
-                  Password must be of length 6
-                </mat-error>
-              <mat-icon matSuffix>lock</mat-icon>
-
-            </mat-form-field>
-            <mat-form-field>
                 <input
-                matInput
-                placeholder="Password"
-                type="password"
-                required
-                minlength="6"
-                name="repassword"
-                ngModel
-                #repassword="ngModel">
-                <mat-error
-                  *ngIf="repassword.errors && repassword.errors.required">
-                  Re-Enter Password is required
-                </mat-error>
-              <mat-icon matSuffix>lock</mat-icon>
-            </mat-form-field>
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  required
+                  minlength="6"
+                  name="password"
+                  class="form-control"
+                  formControlName="password"
+
+                  >
+                  <mat-error
+                    *ngIf="myForm.controls['password'].errors && myForm.controls['password'].errors.required">
+                    Password is required
+                  </mat-error>
+                  <mat-error
+                    *ngIf="myForm.controls['password'].errors && myForm.controls['password'].errors.minlength">
+                    Password must be of length 6
+                  </mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+
+              </mat-form-field>
+              <!-- <mat-form-field>
+                  <input
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  required
+                  minlength="6"
+                  name="repassword"
+                  class="form-control"
+                  formControlName="repassword"
+
+                  >
+                  <mat-error
+                    *ngIf="myForm.controls['repassword'].errors && myForm.controls['repassword'].errors.required">
+                    Re-Enter Password is required
+                  </mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field> -->
+
             <button
               mat-raised-button
               color="primary"

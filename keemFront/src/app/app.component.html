@@ -2,7 +2,11 @@
 <app-top-header ></app-top-header>
 <!-- <app-login></app-login> -->
 
+<!-- <div *ngIf="showLoadingIndicator" class="spinner"> loading</div> -->
+
 <main>
+  <div class="lds-ripple" *ngIf="showLoadingIndicator"><div></div><div></div></div>
+
   <router-outlet></router-outlet>
 </main>
 
