@@ -24,6 +24,7 @@ user: User[];
   }
 
   loginUser(user){
+    console.log(user);
     return this.http.post<any>(this.loginUrl, user);
   }
 
@@ -33,7 +34,7 @@ user: User[];
 
   getToken(){
     return localStorage.getItem('accessToken');
-    this.router.navigate(['/users']);
+    this.router.navigate(['/projects']);
   }
 
   logoutUser(){

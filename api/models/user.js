@@ -17,6 +17,11 @@ const UserSchema = new Schema({
       default: 'basic',
       enum: ["basic", "supervisor", "admin"]
     },
+    isActive: {
+      type: Boolean,
+      default: 'true',
+      
+    },
     accessToken: {
       type: String
     }
